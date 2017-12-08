@@ -1,0 +1,21 @@
+{
+  "name": "microcc",
+  "description": "A C compiler written in Javascript",
+  "version": "0.0.1",
+  "author": {
+    "name": "Wallace Gibbon",
+    "email": "wallacegibbon@aliyun.com"
+  },
+  "keywords": [
+    "compiler",
+    "C"
+  ],
+  "license": "GPLv3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wallacegibbon/microcc.git"
+  },
+  "engines": {
+    "node": ">=7.0"
+  }
+}
