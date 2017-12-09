@@ -1,5 +1,5 @@
 struct person {
-  char[20] name;
+  char name[20];
   char gender;
   char age;
   int prevlogin;
