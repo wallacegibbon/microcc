@@ -8,10 +8,13 @@ const text = `int main(int argc, char **argv)
   char c = 'c';
   //$errorsym
   /*
-  char *s = "abcdefg\\hijklmn";
-  //printf("\"f\" is %f, and \"i\" is %d\n", f, i);
+  //char *s = "abcdefg\\hijklmn";
+  printf("\"f\" is %f, and \"i\" is %d\n", f, i);
   */
-  char *s = "abcdefghijklmn";
+  //char *s = "abcdefghijklmn";
+  $errorsym
+  char *s = "abcdefghijklmn
+             invalid newline";
   return 0;
 }
 `;
@@ -39,8 +42,7 @@ function testGetToken() {
     }
   } catch (e) {
     if (e.constructor !== EndOfFile)
-      //console.log(`line ${e.line}: ${e.message}`);
-      console.log(e);
+      console.log(`line ${e.line}: ${e.message}`);
   }
 }
 
