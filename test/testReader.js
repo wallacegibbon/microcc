@@ -15,6 +15,7 @@ const text = `int test(int argc, char **argv, ...)
   */
   //$errorsym
   char *s = "test escape: \\x65, \\a, \\n";
+  i >= 3 && i <= 5 || i%2==1;
   return 0;
 }
 `;
