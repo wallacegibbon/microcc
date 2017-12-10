@@ -1,22 +1,49 @@
 const { EndOfFile } = require("../lib/errors");
 const Reader = require("../lib/Reader");
 
-const text = `Hello, this is line 1.
-And this is line2.
-bye~
+const text = `int main(int argc, char **argv)
+{
+  float f = 3.1415926;
+  int i = 123;
+  char c = 'c';
+  //$errorsym
+  /*
+  char *s = "abcdefg\\hijklmn";
+  //printf("\"f\" is %f, and \"i\" is %d\n", f, i);
+  */
+  char *s = "abcdefghijklmn";
+  return 0;
+}
 `;
 
 const reader = new Reader(Buffer.from(text));
 
 
-try {
-  while (true) {
-    reader.getChar();
-    console.log(reader.currentState());
+function testGetChar() {
+  try {
+    while (true) {
+      reader.getChar();
+      console.log(reader.currentState());
+    }
+  } catch (e) {
+    if (e.constructor !== EndOfFile)
+      console.log(`line ${e.line}: ${e.message}`);
   }
-} catch (e) {
-  if (e.constructor !== EndOfFile)
-    console.log("**E:", e);
 }
 
 
+function testGetToken() {
+  try {
+    while (true) {
+      console.log("TK:", reader.getToken());
+    }
+  } catch (e) {
+    if (e.constructor !== EndOfFile)
+      //console.log(`line ${e.line}: ${e.message}`);
+      console.log(e);
+  }
+}
+
+
+//testGetChar();
+testGetToken();
