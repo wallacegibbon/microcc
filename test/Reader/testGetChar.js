@@ -1,5 +1,5 @@
-const { EndOfFile } = require("../lib/errors");
-const Reader = require("../lib/Reader");
+const { EndOfFile } = require("../../lib/errors");
+const Reader = require("../../lib/Reader");
 
 const text = `This is line 1,
 this is line 2.
