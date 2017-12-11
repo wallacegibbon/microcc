@@ -23,31 +23,12 @@ const text = `int test(int argc, char **argv, ...)
 const reader = new Reader(Buffer.from(text));
 
 
-function testGetChar() {
-  try {
-    while (true) {
-      const stat = reader.currentState();
-      console.log("line:", stat.line, ", ch:", String.fromCharCode(stat.ch));
-      reader.getChar();
-    }
-  } catch (e) {
-    if (e.constructor !== EndOfFile)
-      console.log(`line ${e.line}: ${e.message}`);
+try {
+  while (true) {
+    console.log(reader.getToken());
   }
+} catch (e) {
+  if (e.constructor !== EndOfFile)
+    console.log(`line ${e.line}: ${e.message}`);
 }
 
-
-function testGetToken() {
-  try {
-    while (true) {
-      console.log("TK:", reader.getToken());
-    }
-  } catch (e) {
-    if (e.constructor !== EndOfFile)
-      console.log(`line ${e.line}: ${e.message}`);
-  }
-}
-
-
-//testGetChar();
-testGetToken();
