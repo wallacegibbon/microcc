@@ -2,7 +2,10 @@ const { EndOfFile } = require("../../lib/errors");
 const Reader = require("../../lib/Reader");
 const fs = require("fs");
 
-const text = fs.readFileSync(`${__dirname}/a.c`);
+if (process.argv.length < 3)
+  throw new Error("Target C file not given");
+
+const text = fs.readFileSync(process.argv[2]);
 const reader = new Reader(Buffer.from(text));
 
 try {
