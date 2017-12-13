@@ -3,7 +3,6 @@ struct person { char *name; int age; char gender };
 int test(int argc, char **argv, ...)
 {
   float f1 = 3.1415926, f2 = .15;
-  int i = 123;
   char c1 = 'c', c2 = '\x65';
   char *s = "abcdefg\\hijklmn";
   printf("\"f\" is %f, and \"i\" is %d\n", f, i);
@@ -21,5 +20,6 @@ int test(int argc, char **argv, ...)
   struct person *p = struct person { "Wallace", 27, 1 };
   p->age++ && p->age--;
   return 0;
+  int i = 10, j = 0x10, k = 010;
 }
 
